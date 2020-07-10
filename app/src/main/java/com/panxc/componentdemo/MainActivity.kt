@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
                 textUserInfo.text = "点击登录"
                 Toast.makeText(this, "退出成功", Toast.LENGTH_SHORT).show()
             } else {
+                // TODO 这里的跳转可以通过 service 获取 url 或者通过 service 跳转
                 UIRouter.openUri(this, "component://login", null)
             }
         }
