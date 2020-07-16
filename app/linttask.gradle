@@ -1,0 +1,32 @@
+import groovy.json.JsonSlurper
+
+def lintModules
+def configJson
+tasks.whenTaskAdded { task ->
+    if (configJson == null) {
+        def inputFile = new File("custom-lint-config.json")
+        configJson = new JsonSlurper().parseText(inputFile.text)
+        lintModules = configJson.moduleConfigMap.keySet()
+        println "init lint config"
+    }
+    if (task.name.startsWith("install") || task.name.startsWith("assemble")) {
+        def buildType = task.name.endsWith("Debug") ? "Debug" : "Release"
+        rootProject.subprojects.each {
+            it.afterEvaluate {
+                lintModules.each { module ->
+                    if (configJson.moduleConfigMap[module].lintEnable && it.path.endsWith(module)) {
+                        it.afterEvaluate {
+                            def lintTask = it.tasks["lint$buildType"]
+                            def option = lintTask.lintOptions
+                            option.abortOnError = true
+                            //check illegal dependency only
+                            option.check = ["IllegalDependency"]
+                            println "add $lintTask for $module"
+                            task.dependsOn lintTask
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
