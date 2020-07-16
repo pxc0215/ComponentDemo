@@ -24,6 +24,9 @@ allprojects {
         google()
         jcenter()
 
+        flatDir {
+            dirs project(':common').file('libs')
+        }
     }
 }
 
