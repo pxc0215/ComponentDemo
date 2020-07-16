@@ -1,1 +1,2 @@
 include ':app', ':login', ':baselib', ':framework', ':common', ':service'
+include ':login-frame'
