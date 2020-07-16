@@ -1,2 +1,3 @@
 include ':app', ':login', ':baselib', ':framework', ':common', ':service'
 include ':lintcore'
+include ':lintlib'
