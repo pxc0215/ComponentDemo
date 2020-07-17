@@ -33,5 +33,9 @@ class MainActivity : AppCompatActivity() {
                 UIRouter.openUri(this, "component://login", null)
             }
         }
+
+        order_tv.setOnClickListener {
+            UIRouter.openUri(this, "component://orderList", null)
+        }
     }
 }

@@ -22,5 +22,6 @@ class ComponentDemoApplication : Application() {
     private fun registerComponents() {
         // 注册组件，同时触发组件注册自己的服务
         ComponentManager.registerComponent(ComponentConstants.LOGIN_COMPONENT_NAME)
+        ComponentManager.registerComponent(ComponentConstants.ORDER_COMPONENT_NAME)
     }
 }

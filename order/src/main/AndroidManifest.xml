@@ -1,2 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.chell.demo.order" />
+    package="com.chell.demo.order" >
+
+    <application>
+        <activity android:name=".OrderListActivity">
+        </activity>
+    </application>
+
+</manifest>
