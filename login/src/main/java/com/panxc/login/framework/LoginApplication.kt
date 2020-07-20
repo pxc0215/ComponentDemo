@@ -9,18 +9,12 @@ import com.panxc.service.ILoginService
 /**
  * Created by panxc on 2019-06-21.
  */
-class LoginApplication : IApplicationLike {
+open class LoginApplication: IApplicationLike {
 
     override fun onCreate() {
         // 注册登录服务
         ComponentManager.addService(ILoginService::class.java.simpleName, LoginServiceImpl())
         // 注册路由
         UIRouter.registerUI(LoginRouter)
-    }
-
-    override fun onStop() {
-        // 移除相应服务
-        ComponentManager.removeService(ILoginService::class.java.simpleName)
-        UIRouter.unregisterUI(LoginRouter)
     }
 }
