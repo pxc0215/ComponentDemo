@@ -1,0 +1,20 @@
+{
+  "moduleConfigMap": {
+    "tutor-order": {
+      "lintEnable": true,
+      "extraEnableList": [
+        "tutor-address"
+      ]
+    },
+    "login": {
+      "lintEnable": true,
+      "extraEnableList": [
+        "tutor-legacy"
+      ]
+    }
+  },
+  "enableModules": [
+    "common",
+    "service"
+  ]
+}
