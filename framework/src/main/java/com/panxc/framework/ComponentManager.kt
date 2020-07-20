@@ -41,24 +41,4 @@ object ComponentManager {
         val o = services[clazz?.simpleName]
         return o as T
     }
-
-    /**
-     * 注册组件
-     *
-     * @param classname 组件名
-     */
-    fun registerComponent(classname: String) {
-        if (components.contains(classname)) {
-            return
-        }
-        try {
-            val clazz = Class.forName(classname)
-            val applicationLike = clazz.newInstance() as IApplicationLike
-            applicationLike.onCreate()
-            components[classname] = applicationLike
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-
-    }
 }

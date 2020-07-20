@@ -16,5 +16,4 @@ class LoginServiceMock : ILoginService {
     override fun logout() {
 
     }
-
 }

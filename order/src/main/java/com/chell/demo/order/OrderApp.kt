@@ -11,7 +11,5 @@ class OrderApp : IApplicationLike {
     override fun onCreate() {
         //register order service
         UIRouter.registerUI(OrderRouter)
-
     }
-
 }

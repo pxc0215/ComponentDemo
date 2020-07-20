@@ -15,7 +15,6 @@ open class BaseApp : Application() {
 
     open val appLike: IApplicationLike? = null
 
-
     override fun onCreate() {
         super.onCreate()
         if (appLikeNames != null && appLike != null) {
